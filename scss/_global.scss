@@ -1,0 +1,58 @@
+body {
+    background-color: $color-whitebeige;
+    margin:0;
+    min-height: 100%;
+}
+
+.navbar {
+    
+    background-color: $color-salmon;
+    padding: 0.5 rem;
+        a{
+            text-decoration: none;
+            color: $color-whitebeige;
+
+        a.nav-link:hover {
+            background-color: $color-greendark;
+        }
+        }
+}
+
+p {
+    font: $p-body;
+    color: $color-black;
+}
+
+h4 {
+    font: $subtittle-producto;
+    color: $color-greenB;
+}
+
+h5 {
+    font: $subtittle-producto;
+}
+
+i{
+    font: $p-body;
+    color: $color-salmon;
+}
+
+.card-footer {
+    background-color:$color-salmon ;
+}
+
+.py-5 {
+background-color: $color-greendark;
+}
+
+img.logo-marca {
+    width: 400px;
+    height: 100px;
+    margin-top: 60px;
+}
+
+button {
+    color: $color-greendark;
+    background-color: $color-whitebeige;
+    border-color: $color-whitebeige;
+}

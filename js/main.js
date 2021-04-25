@@ -52,15 +52,13 @@ for (let i = 0; i < baseDatosProductos.length; i++) {
     <div class="card h-100 rounded shadow-sm">
     <a href="#"><img class="card-img-top" src="./imagenes/${baseDatosProductos[i].imagen}.jpg" alt=""></a>
     <div class="card-body">
-    <h4 class="card-title">
-    <a href="#" style="color:#96bb7c;">${baseDatosProductos[i].nombre}</a>
-    </h4>
+    <h4 class="card-title">${baseDatosProductos[i].nombre}</h4>
     <h5> $${baseDatosProductos[i].precio}</h5>
     <b>${baseDatosProductos[i].categoria}</b>
     <p class="card-text">Apto vegano - Cruelty Free -  Productos sin sulfatos / organicos y sustentables </p>
     <i class="text-right"> Stock: ${baseDatosProductos[i].stock}</i>
     </div>
-    <div class="card-footer" style="background-color:#e9896a;">
+    <div class="card-footer">
     <button class="rounded" onclick="agregarAlCarrito('${baseDatosProductos[i].precio}')">Agregar al carrito</button>
     <small class="text-muted"></small>
     </div>
