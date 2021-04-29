@@ -56,8 +56,16 @@ for (let i = 0; i < baseDatosProductos.length; i++) {
     <h5> $${baseDatosProductos[i].precio}</h5>
     <b>${baseDatosProductos[i].categoria}</b>
     <p class="card-text">Apto vegano - Cruelty Free -  Productos sin sulfatos / organicos y sustentables </p>
+      <label>Cantidad:</label>
+      <select id="cantidad">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="0" selected="selected">0</option>
+      </select>
     <i class="text-right"> Stock: ${baseDatosProductos[i].stock}</i>
-    </div>
+    </div>    
     <div class="card-footer">
     <button class="rounded" onclick="agregarAlCarrito('${baseDatosProductos[i].precio}')">Agregar al carrito</button>
     <small class="text-muted"></small>
@@ -68,49 +76,44 @@ for (let i = 0; i < baseDatosProductos.length; i++) {
 
 document.getElementById("productos").innerHTML = acumulador;
 
-let bienvenidos = prompt ('Deseas suscribirte a nuestro Newsletter? Escribe si o no');
-let emailSi = "si"
-let emailNo = "no"
-  if (bienvenidos==emailSi){
-    let email =  prompt ('Dejanos tu E-mail, para recibir todas nuestras Ofertas!');
-    alert ('Gracias por suscribirte! te enviaremos un mail a tu casilla: ' + email );
 
-    const emailUsuario = email;
-    localStorage.setItem( 'e-mail del usuario', email );
+// Bienvenida y pedir e-mail  ---- esta ok 
 
-    const usuarioLocal = localStorage.getItem ('e-mail del usuario');
-    console.log (usuarioLocal);
-  }
+// let bienvenidos = prompt ('Deseas suscribirte a nuestro Newsletter? Escribe si o no');
+// let emailSi = "si"
+// let emailNo = "no"
+//   if (bienvenidos==emailSi){
+//     let email =  prompt ('Dejanos tu E-mail, para recibir todas nuestras Ofertas!');
+//     alert ('Gracias por suscribirte! te enviaremos un mail a tu casilla: ' + email );
+
+//     const emailUsuario = email;
+//     localStorage.setItem( 'e-mail del usuario', email );
+
+//     const usuarioLocal = localStorage.getItem ('e-mail del usuario');
+//     console.log (usuarioLocal);
+//   }
+
+const titulo = document.getElementById('titulo')
+const usuario = prompt('Hola, ingrese su nombre')
+titulo.innerText = `¡Bienvenido ${usuario}!` 
 
 
+
+const selectNum = document.getElementById('cantidad')
 
 function agregarAlCarrito (precio) {
-  totalCarrito += precio; 
-  let unidades = parseInt ( prompt ('Cuantas unidades deseas? Escribi un numero'));
-  if (unidades <= (precio)){   
-      alert ('Se agrego un nuevo producto al carrito. El total es: $ ' + precio*unidades);}
-   else {
-    alert ('Lo siento, no tenemos stock');
-  } 
+  totalCarrito += selectNum.value * precio; 
+  if (precio == 0 ){   
+      alert ('Se agrego un nuevo producto al carrito. El total es: $ '(selectNum.value * precio));}
   
   function sumarIva (baseDatosProductos) {
     baseDatosProductos.precio = precio * 1.21
   return precio * 1.21; }
     console.log ('El precio del producto seleccionado + iva es $: ' + sumarIva (precio * 1.21) + ' por unidad');
-
-            
-      const restarStock = (stock) => {
-        baseDatosProductos.stock = stock - unidades
-        return stock - unidades; };
-
-      console.log ('El stock del producto es ' + restarStock( baseDatosProductos.stock - unidades));
-} 
-
+  } 
 
 
   carrito.push(agregarAlCarrito);
-  console.log(carrito);
-
-
+  console.log(carrito);  /// no funciona 
 
 

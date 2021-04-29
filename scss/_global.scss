@@ -17,7 +17,12 @@ body {
         }
         }
 }
-
+h1 {
+    font: $subtittle-producto;
+    color: $color-greendark;
+    font-size: 3rem;
+    padding: 1rem;
+}
 p {
     font: $p-body;
     color: $color-black;
@@ -46,8 +51,10 @@ background-color: $color-greendark;
 }
 
 img.logo-marca {
-    width: 400px;
-    height: 100px;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    width: 40%;
     margin-top: 60px;
 }
 
