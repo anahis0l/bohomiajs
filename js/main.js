@@ -1,7 +1,3 @@
-    let carrito = [];
-    localStorage.setItem ('Carrito de compras' , JSON.stringify(carrito));
-    let carritoEnElStorage = JSON.parse (localStorage.getItem ('Carrito de compras'));
-
 let acumulador = ``;
 let totalCarrito = 0;
 let totalCompra = 0;
@@ -20,15 +16,15 @@ class Producto {
 //* Variables objetos*/
 const baseDatosProductos = []; 
 
-baseDatosProductos.push(new Producto ('Cepillo Dientes - Bambu',  250, 'img1','Cuidado Dental',7));
-baseDatosProductos.push(new Producto('Hilo dental Vegano',  450,'img2', 'Cuidado Dental', 9));
-baseDatosProductos.push (new Producto('Pasta dental Ayurvedica',  350,'img3','Cuidado Dental',5));
-baseDatosProductos.push (new Producto ('Shampoo Sólido',  580, 'img4','Cuidado del pelo', 5));
+baseDatosProductos.push(new Producto ('Cepillo Dientes - Bambu',  250, 'img1','Cuidado Dental',3));
+baseDatosProductos.push(new Producto('Hilo dental Vegano',  450,'img2', 'Cuidado Dental', 2));
+baseDatosProductos.push (new Producto('Pasta dental Ayurvedica',  350,'img3','Cuidado Dental',4));
+baseDatosProductos.push (new Producto ('Shampoo Sólido',  580, 'img4','Cuidado del pelo', 2));
 baseDatosProductos.push (new Producto('Acondicionador Sólido',  590,'img5','Cuidado Dental', 3));
-baseDatosProductos.push (new Producto ('Jabón Vegeano', 390, 'img6', 'Cuidado de la piel', 8));
-baseDatosProductos.push (new Producto ('Copita Mensatural', 1500, 'img7', 'Cuidado Femenino' ,4));
-baseDatosProductos.push (new Producto ('Agua de rosas', 750, 'img8','Cuidado Femenino' ,9));
-baseDatosProductos.push (new Producto ('Pads desmaquillantes',  720,'img9','Cuidado Femenino',3));
+baseDatosProductos.push (new Producto ('Jabón Vegeano', 390, 'img6', 'Cuidado de la piel', 4));
+baseDatosProductos.push (new Producto ('Copita Mensatural', 1500, 'img7', 'Cuidado Femenino' ,3));
+baseDatosProductos.push (new Producto ('Agua de rosas', 750, 'img8','Cuidado Femenino' ,2));
+baseDatosProductos.push (new Producto ('Pads desmaquillantes',  720,'img9','Cuidado Femenino',2));
 
 localStorage.setItem ('Productos', JSON.stringify(baseDatosProductos));
 console.log (JSON.parse (localStorage. getItem ('Productos')));
@@ -58,11 +54,10 @@ for (let i = 0; i < baseDatosProductos.length; i++) {
     <p class="card-text">Apto vegano - Cruelty Free -  Productos sin sulfatos / organicos y sustentables </p>
       <label>Cantidad:</label>
       <select id="cantidad">
-          <option value="1">1</option>
+          <option value="1" selected="selected">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
-          <option value="0" selected="selected">0</option>
       </select>
     <i class="text-right"> Stock: ${baseDatosProductos[i].stock}</i>
     </div>    
@@ -92,28 +87,49 @@ document.getElementById("productos").innerHTML = acumulador;
 //     const usuarioLocal = localStorage.getItem ('e-mail del usuario');
 //     console.log (usuarioLocal);
 //   }
+ 
+// Saludo personalizado -- esta ok
 
-const titulo = document.getElementById('titulo')
-const usuario = prompt('Hola, ingrese su nombre')
-titulo.innerText = `¡Bienvenido ${usuario}!` 
+// const titulo = document.getElementById('titulo')
+// const usuario = prompt('Hola, ingrese su nombre')
+// titulo.innerText = `¡Bienvenido ${usuario}!` 
 
 
+const selectNum = document.getElementById('cantidad');
 
-const selectNum = document.getElementById('cantidad')
+let carrito = [];
 
 function agregarAlCarrito (precio) {
-  totalCarrito += selectNum.value * precio; 
-  if (precio == 0 ){   
-      alert ('Se agrego un nuevo producto al carrito. El total es: $ '(selectNum.value * precio));}
-  
-  function sumarIva (baseDatosProductos) {
-    baseDatosProductos.precio = precio * 1.21
-  return precio * 1.21; }
-    console.log ('El precio del producto seleccionado + iva es $: ' + sumarIva (precio * 1.21) + ' por unidad');
-  } 
+  let productoElegido = baseDatosProductos.find( el => el.precio == precio )
+  if (precio){   
+      alert ('Se agrego un nuevo producto al carrito. El total es: $ '+  precio);}
 
+      carrito.push (productoElegido);
+      localStorage.carrito = JSON.stringify(carrito);
+      console.log (carrito);
 
-  carrito.push(agregarAlCarrito);
-  console.log(carrito);  /// no funciona 
+      function sumarIva (precio) {
+        return selectNum.value =(precio * 1.21) }
+        console.log ('El precio del producto seleccionado + iva es $: ' + sumarIva (precio * 1.21) + ' por unidad');
+       
+}
+
+function mostrarTotal() {
+  console.log( carrito.reduce((acc, el) => acc += el.precio, 0));
+}
+
+document.getElementById('cantidad').addEventListener('input', stockCantidad);
+
+function stockCantidad(event){
+  console.log(event)
+  console.log(event.target.value)
+let unidades = document.getElementById('cantidad').value;
+    if (unidades < baseDatosProductos.stock){
+    console.loge ("Tenemos stock");
+    } else {
+    console.log ("No tenemos stock suficiente"); 
+  }
+}
+
 
 
