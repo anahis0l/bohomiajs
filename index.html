@@ -7,56 +7,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  <link rel="stylesheet" href="css/icons.css" type="text/css"> 
 
   <title>Bonhomía - Tienda Natural</title>
 
-  <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="css/bootstrap.min.css" >
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>       
 
-  <!-- Custom styles for this template -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
   <script> new WOW().init();</script>
-<link rel="stylesheet" href="css/main.css" type="text/css"> 
+  <link rel="stylesheet" href="css/main.css" type="text/css"> 
   <link rel="shortcut icon" href="./imagenes/logo b.png">
 </head>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
-    </style>
+
 <body>
 
-  <!-- Navigation -->
+
   <nav class="navbar navbar-expand-lg  fixed-top">
     <div class="container"> 
-      <a href="./index.html"><img  class="navbar-brand" src="./imagenes/logo b.png" alt="logo Bonhomía" width="40px" height="40px"></a>
+      <img  class="navbar-brand" src="./imagenes/logo b.png" alt="logo Bonhomía" width="40px" height="40px">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"><i class="icon-bars"></i></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Inicio
+          <li class="nav-item ">
+            <a class="nav-link active" href="./index.html">Inicio
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Productos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contacto</a>
+            <a class="nav-link" href="#contacto">Contacto</a>
+          </li>
+          <li class="nav-item" >
+            <button id="boton-carrito"><span id="contadorCarrito">0</span><i class="icon-shopping-cart"></i></button>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Page Content -->
+
   <div class="container">
     
         <img class="logo-marca wow animate__animated animate__backInDown" src="./imagenes/logo 1.png">
-        <h1 id="titulo" class="text-center">Bienvenido</h1>
+        <h1 id="titulo" class="text-center">Bienvenidos</h1>
       <!-- /.col-lg-3 -->
-
       <div class="col-lg-12">
 
         <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
@@ -85,32 +84,66 @@
             <span class="sr-only">Next</span>
           </a>
         </div>
-        
+        <div class="container">
+          <ul class="nav nav-pills justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link active" href="#" id="todos">Todos los productos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="dental">Cuidado Dental</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="pelo">Cuidado del Pelo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="fem">Cuidado Femenino</a>
+            </li>
+          </ul>
+        </div>
         <div class="row" id="productos">
 
-        
-
         </div>
-        <!-- /.row -->
 
       </div>
-      <!-- /.col-lg-9 -->
+
 
     </div>
     <!-- /.row -->
-
   </div>
-  <!-- /.container -->
+  
+  <div class="modal-contenedor">
+    <div class="modal-carrito">
+      <h3><i class="icon-shopping-basket"></i>Carrito</h3>
+        <button id="carritoCerrar"><i class="icon-check"></i></button>
+        <div id="carrito-contenedor">
+            <!-- <div class="productoEnCarrito">
+                <p>Buzo 1</p>
+                <p>Precio: $1200</p>
+                <button class="boton-eliminar"><i class="icon-ellipsis-v"></i></button>
+            </div> -->
+        </div>
+        <p class="precioProducto">Precio total: $<span id="precioTotal"></span></p>
+    </div>
+</div>
 
   <!-- Footer -->
-  <footer class="py-5">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Bonhomía - Tienda Natural 2021</p>
+  <footer>
+    <div class="container" name="contacto" id="contacto">
+      <div class="row">
+          <div class="col-12 col-md-8  col-xl-8">
+            <li><a href="#"><i class="icon-phone"></i> 4862-2435</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><i class="icon-whatsapp"></i> 011-5068-2956</a></li>
+               <li> <a href="#"><i class="icon-instagram1"></i> /BonhomiaNatural</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><i class="icon-envelope"></i> bonhomiatienda@gmail.com</a></li>
+                <li><a href="#"><i class="icon-location"></i> Av.Cordoba 3465 - CABA </a></li>
+          </div>
+              <div class="col-12  col-md-4   col-xl-4">
+                  <p class="copyright">Copyright &copy; Bonhomía - Tienda Natural 2021 </p>
+              </div>
+      </div>
     </div>
-    <!-- /.container -->
   </footer>
-
+  <script defer src="./js/modal.js"></script>
   <script src="./js/main.js"></script>
+  <script src="./js/jquery-3.6.0.min.js"></script>
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

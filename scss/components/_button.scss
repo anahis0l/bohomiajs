@@ -1,0 +1,18 @@
+
+.comprar {
+    color: $color-whitebeige;
+    background: $color-gradient-green;
+    border-color: $color-greenB;
+    i{
+        color: $color-whitebeige;
+    }
+
+}
+button:hover {
+    color: $color-greendark;
+    background: $color-whitebeige;
+    border-color: $color-greenB; 
+    i{
+        color: $color-greendark;
+    }  
+}

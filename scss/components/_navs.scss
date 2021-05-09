@@ -1,0 +1,58 @@
+ul.nav {
+
+   padding: 20px;
+    .nav-link.active {
+        background-color: $color-salmon;
+        border-radius: 3px;
+        color:$color-whitebeige;
+    }
+    a.nav-link {
+        color:$color-greendark;
+        text-decoration: none;
+        border: solid 1px;
+        border-color: $color-greendark;
+    }
+    .nav-link:hover {
+        color: $color-whitebeige;
+        background-color: $color-salmon;  
+    }
+        
+
+}
+
+
+.navbar {
+    
+    background-color: $color-salmon;
+    padding: 0.5 rem;
+        a{
+            text-decoration: none;
+            color: $color-whitebeige;
+        
+
+            }
+            button {
+                background-color: $color-salmon;
+                border: none;
+                padding: 8px;
+            
+                i {
+                color: $color-whitebeige;
+                font-size: 1.2rem; 
+            }
+            span {
+                color: $color-whitebeige;
+            };
+            }
+            .nav-link.active {
+                background-color: $color-greenlight;
+                border-radius: 5px;
+            }
+
+            a:hover {
+                background-color: $color-greenlight;
+                color: $color-whitebeige;
+                border-radius: 5px;
+            }
+        
+}

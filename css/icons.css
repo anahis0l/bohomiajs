@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('../fonts/icomoon.eot?4uo26q');
-  src:  url('../fonts/icomoon.eot?4uo26q#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?4uo26q') format('truetype'),
-    url('../fonts/icomoon.woff?4uo26q') format('woff'),
-    url('../fonts/icomoon.svg?4uo26q#icomoon') format('svg');
+  src:  url('../fonts/icomoon.eot?qrpver');
+  src:  url('../fonts/icomoon.eot?qrpver#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?qrpver') format('truetype'),
+    url('../fonts/icomoon.woff?qrpver') format('woff'),
+    url('../fonts/icomoon.svg?qrpver#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,29 +25,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-paste:before {
-  content: "\e92d";
+.icon-dollar:before {
+  content: "\e900";
+}
+.icon-shopping-cart:before {
+  content: "\e901";
 }
 .icon-phone:before {
   content: "\e942";
 }
 .icon-location:before {
   content: "\e947";
-}
-.icon-users1:before {
-  content: "\e972";
-}
-.icon-equalizer:before {
-  content: "\e992";
-}
-.icon-truck1:before {
-  content: "\e9b0";
-}
-.icon-road1:before {
-  content: "\e9b1";
-}
-.icon-tab:before {
-  content: "\ea45";
 }
 .icon-instagram:before {
   content: "\ea92";
@@ -64,17 +52,11 @@
 .icon-leaf:before {
   content: "\e9a4";
 }
-.icon-tree:before {
-  content: "\e9bc";
-}
 .icon-star-empty:before {
   content: "\e9d7";
 }
 .icon-heart:before {
   content: "\e9da";
-}
-.icon-command:before {
-  content: "\ea4e";
 }
 .icon-facebook2:before {
   content: "\ea91";
@@ -85,17 +67,20 @@
 .icon-whatsapp1:before {
   content: "\ea95";
 }
-.icon-linkedin:before {
-  content: "\eac9";
+.icon-cart:before {
+  content: "\e93a";
+}
+.icon-credit-card:before {
+  content: "\e93f";
+}
+.icon-plus:before {
+  content: "\ea0a";
+}
+.icon-checkmark2:before {
+  content: "\ea11";
 }
 .icon-envelope-o:before {
   content: "\f003";
-}
-.icon-road:before {
-  content: "\f018";
-}
-.icon-plane:before {
-  content: "\f072";
 }
 .icon-phone-square:before {
   content: "\f098";
@@ -112,32 +97,14 @@
 .icon-users:before {
   content: "\f0c0";
 }
-.icon-truck:before {
-  content: "\f0d1";
-}
 .icon-envelope:before {
   content: "\f0e0";
-}
-.icon-archive:before {
-  content: "\f187";
 }
 .icon-paper-plane:before {
   content: "\f1d8";
 }
 .icon-send:before {
   content: "\f1d8";
-}
-.icon-ship:before {
-  content: "\f21a";
-}
-.icon-map-pin:before {
-  content: "\f276";
-}
-.icon-map-signs:before {
-  content: "\f277";
-}
-.icon-envelope-open:before {
-  content: "\f2b6";
 }
 .icon-check:before {
   content: "\f00c";
@@ -148,17 +115,11 @@
 .icon-gear:before {
   content: "\f013";
 }
-.icon-bar-chart:before {
-  content: "\f080";
+.icon-tag:before {
+  content: "\f02b";
 }
-.icon-bar-chart-o:before {
-  content: "\f080";
-}
-.icon-desktop:before {
-  content: "\f108";
-}
-.icon-yelp:before {
-  content: "\f1e9";
+.icon-tags:before {
+  content: "\f02c";
 }
 .icon-bars:before {
   content: "\f0c9";
@@ -171,4 +132,7 @@
 }
 .icon-ellipsis-v:before {
   content: "\f142";
+}
+.icon-shopping-basket:before {
+  content: "\f291";
 }
