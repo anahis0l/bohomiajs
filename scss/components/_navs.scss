@@ -1,18 +1,22 @@
-ul.nav {
+.nav-pills {
 
    padding: 20px;
-    .nav-link.active {
+    .active {
         background-color: $color-salmon;
         border-radius: 3px;
         color:$color-whitebeige;
+        
     }
-    a.nav-link {
+    button {
         color:$color-greendark;
         text-decoration: none;
         border: solid 1px;
         border-color: $color-greendark;
+        background-color: $color-whitebeige;
+        padding: 10px;
+        border-radius: 5px;
     }
-    .nav-link:hover {
+    button:hover {
         color: $color-whitebeige;
         background-color: $color-salmon;  
     }

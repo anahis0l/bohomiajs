@@ -15,6 +15,7 @@
 }
 .modal-carrito {
     position: relative;
+    border-radius: 5px;
     background-color: $color-whitebeige;
     min-width: 800px;
     padding: 20px;
@@ -40,26 +41,63 @@ button {
 
 .modal-carrito {
         h3{
-        color: $color-greenB;
+        margin-top: 30px;
+        padding-left: 10px;
+        border-radius: 5px;
+        width: 100%;
+        background-color: $color-greenB;
+        color: $color-whitebeige;
         padding-bottom: 5px;
+        i{
+            color: $color-whitebeige;
+            font-size: 1rem;
+            padding-right: 10px;
+        }
+    }
+    h6 {
+        font: $subtittle-producto;
+        font-size: 1rem;
     }
 }
-.modal-carrito #carritoCerrar {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 20px;
-    color: royalblue;
-    border: none;
-    background-color: white;
+.modal-carrito  {
+    #carritoCerrar {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        border: none;
+        background-color: $color-salmon;
+        border-radius: 5px;
+        
+        i{  
+            color: $color-whitebeige; 
+            font-size: 1.5rem;
+        }
+
+        i:hover {
+            color: $color-greenB;
+        }
+    }
+
+    .precioProducto {
+        display: flex;
+        align-items: flex-end;
+        padding-top: 10px;
+        
+    }
+
+    #finalizar {
+        background-color: $color-salmon;
+        color: $color-whitebeige;
+        font-weight: bold;
+
+    }
+    #remove:hover {
+        cursor: pointer;
+    }
 }
 .modal-carrito #carritoCerrar:hover {
     cursor: pointer;
 }
 .modal-carrito #carritoCerrar:focus {
     outline: none;
-}
-.modal-carrito .precioProducto {
-    padding-top: 10px;
-    
 }

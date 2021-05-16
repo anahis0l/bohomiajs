@@ -87,44 +87,42 @@
         <div class="container">
           <ul class="nav nav-pills justify-content-center">
             <li class="nav-item">
-              <a class="nav-link active" href="#" id="todos">Todos los productos</a>
+              <button  id="todos">Todos los productos</button>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="dental">Cuidado Dental</a>
+              <button  id="dental">Cuidado Dental</button>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="pelo">Cuidado del Pelo</a>
+              <button  id="pelo">Cuidado del Pelo</button>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="fem">Cuidado Femenino</a>
+              <button id="fem">Cuidado Femenino</button>
             </li>
           </ul>
         </div>
         <div class="row" id="productos">
-
         </div>
-
       </div>
-
-
     </div>
     <!-- /.row -->
   </div>
   
   <div class="modal-contenedor">
-    <div class="modal-carrito">
+    <div class="modal-carrito">        
+      <button id="carritoCerrar"><i class="icon-check"></i></button>
       <h3><i class="icon-shopping-basket"></i>Carrito</h3>
-        <button id="carritoCerrar"><i class="icon-check"></i></button>
-        <div id="carrito-contenedor">
-            <!-- <div class="productoEnCarrito">
-                <p>Buzo 1</p>
-                <p>Precio: $1200</p>
-                <button class="boton-eliminar"><i class="icon-ellipsis-v"></i></button>
-            </div> -->
-        </div>
-        <p class="precioProducto">Precio total: $<span id="precioTotal"></span></p>
+      <div id="carrito-contenedor">
+      </div>
+        <div class="container">
+            <div class="row">
+              <div class="offset-9 col-3">
+                <h6 class="precioProducto text-right">Total: $<span id="precioTotal"></span></h6>
+                <button id="finalizar" type="button" class="btn btn-primary">Finalizar compra</button>
+              </div>
+            </div>
+          </div>
+      </div>
     </div>
-</div>
 
   <!-- Footer -->
   <footer>
