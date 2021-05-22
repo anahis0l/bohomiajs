@@ -29,9 +29,8 @@ baseDatosProductos.push (new Producto ('Pads desmaquillantes',  720,'img9','Cuid
 localStorage.setItem ('Productos', JSON.stringify(baseDatosProductos));
 console.log (JSON.parse (localStorage. getItem ('Productos')));
 
-
 const contenedorProductos = document.getElementById("productos")
-
+// creador de cards 
 mostrarProductos (baseDatosProductos);
 $("#productos").html(acumulador);
 
@@ -71,7 +70,7 @@ $("#productos").html(acumulador);
 
 let carrito = [];
 const unidades = document.getElementById('cantidad').value
-
+// funcion agregar al carrito y actualizarlo 
 function agregarAlCarrito (precio) {
   let inputValue = unidades.value
   let productoElegido = baseDatosProductos.find( el => el.precio == precio )
@@ -95,20 +94,26 @@ function agregarAlCarrito (precio) {
         actualizarCarrito()   
 }
 
-
-
-
+const storage_carrito = localStorage.getItem("carrito")
+  if (storage_carrito != null) {
+    carrito = JSON.parse(storage_carrito);
+  } else {
+    carrito = [];
+  }
  
 /// funciones para filtrar 
 
 $('#todos').on('click', () => {
-  mostrarProductos(array);
+  mostrarProductos(baseDatosProductos);
+  
 })
 
 $('#dental').on('click', () => {
-  const valorDental = baseDatosProductos.filter( el => el.categoria == 'Cuidado Dental');
+  const valorDental = baseDatosProductos.filter( (el) => el.categoria.includes('Cuidado Dental'));
   console.log(valorDental)
-  return mostrarProductos(valorDental)
+  return mostrarProductos(baseDatosProductos.filter( (el) => el.categoria.includes('Cuidado Dental')));
+
+
 })
 
 $('#pelo').on('click', () => {
@@ -117,11 +122,30 @@ $('#pelo').on('click', () => {
   mostrarProductos(valorPelo)
 })
 
-$('#fem').on('click', () => {
+
+  $('#fem').on('click', () => {
   const valorFem = baseDatosProductos.filter( el => el.categoria == 'Cuidado Femenino');
   console.log(valorFem)
-  mostrarProductos(valorFem)
-})
+  mostrarProductos(baseDatosProductos.filter( el => el.categoria == 'Cuidado Femenino'));
+  
+ }
+  )
 
 
+/// funciones filtrar
+const todos = document.getElementById('todos')
+const dental = document.getElementById('dental')
+const pelo = document.getElementById('pelo')
+const fem = document.getElementById('fem')
 
+function filtrar (baseDatosProductos){
+  const valorDental = baseDatosProductos.filter( (el) => el.categoria.includes('Cuidado Dental'));
+  if ( todos == 'all'){
+  mostrarProductos(baseDatosProductos);}
+  else { 
+    mostrarProductos(valorDental);
+
+  }
+
+
+}

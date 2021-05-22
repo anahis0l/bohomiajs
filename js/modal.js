@@ -14,7 +14,7 @@ botonCerrar.addEventListener('click', ()=>{
 // const botonEliminar = document.getElementById('remove')
 
 // botonEliminar.addEventListener('click', ()=>{
-//     contenedorCarrito.classList.remove ('productoEnCarrito')
+//     contenedorCarrito.innerHTML = ''
 
 // })
 
