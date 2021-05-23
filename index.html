@@ -36,11 +36,20 @@
             <a class="nav-link active" href="./index.html">Inicio
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Productos</a>
-          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Productos</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown"> 
+                    <a class="dropdown-item" href="#" id="dental">Dental</a>
+                    <a class="dropdown-item" href="#" id="pelo">Pelo</a>
+                    <a class="dropdown-item" href="#" id="fem">Femenino</a>
+                    <a class="dropdown-item" href="#" id="eco" onclick="traerDatos()" >Eco-Friendly ML</a>
+                  </div>
+            </li>  
           <li class="nav-item">
             <a class="nav-link" href="#contacto">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Newsletter</a>
           </li>
           <li class="nav-item" >
             <button id="boton-carrito"><span id="contadorCarrito">0</span><i class="icon-shopping-cart"></i></button>
@@ -87,16 +96,19 @@
         <div class="container">
           <ul class="nav nav-pills justify-content-center">
             <li class="nav-item">
-              <button onclick="filtrar(baseDatosProductos)"  id="todos">Todos los productos</button>
+              <button  id="todos">Todos los productos</button>
             </li>
             <li class="nav-item">
-              <button onclick="filtrar(baseDatosProductos)" id="dental">Cuidado Dental</button>
+              <button  id="dental">Cuidado Dental</button>
             </li>
             <li class="nav-item">
-              <button onclick="filtrar(baseDatosProductos)" id="pelo">Cuidado del Pelo</button>
+              <button  id="pelo">Cuidado del Pelo</button>
             </li>
             <li class="nav-item">
-              <button onclick="filtrar(baseDatosProductos)" id="fem">Cuidado Femenino</button>
+              <button  id="fem">Cuidado Femenino</button>
+            </li>
+            <li class="nav-item">
+              <button onclick="traerDatos()"  id="eco">Eco-friendly ML</button>
             </li>
           </ul>
         </div>
@@ -105,8 +117,8 @@
       </div>
     </div>
     <!-- /.row -->
-  </div>
-  
+  </div> 
+  <!-- modal contenedor-->
   <div class="modal-contenedor">
     <div class="modal-carrito">        
       <button id="carritoCerrar"><i class="icon-check"></i></button>
@@ -139,8 +151,9 @@
       </div>
     </div>
   </footer>
-  <script defer src="./js/modal.js"></script>
   <script src="./js/main.js"></script>
+  <script defer src="./js/modal.js"></script>
+  <script defer src="./js/ajax.js"></script>
   <script src="./js/jquery-3.6.0.min.js"></script>
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

@@ -10,13 +10,7 @@ botonCerrar.addEventListener('click', ()=>{
     contenedorModal.remove('modal-active')
 })
 
-
-// const botonEliminar = document.getElementById('remove')
-
-// botonEliminar.addEventListener('click', ()=>{
-//     contenedorCarrito.innerHTML = ''
-
-// })
+const unidades = document.getElementById('cantidad').value
 
 
 // modal funcion
@@ -26,7 +20,7 @@ function actualizarCarrito (){
   contenedorCarrito.innerHTML = ''
 
   carrito.forEach ( (baseDatosProductos) =>{
-
+    let inputValue = unidades.value
 
   const div = document.createElement('div')
   div.classList.add('productoEnCarrito')
@@ -45,7 +39,7 @@ function actualizarCarrito (){
                             <img class="animate__animated animate__fadeIn" src="./imagenes/${baseDatosProductos.imagen}.jpg" alt="" with="100px" height="100px"> 
                         </div>
                             <div class="col-1 d-flex align-items-center">
-                                <i class="icon-remove " id="remove"></i>
+                               <button onclick=eliminarproducto(${baseDatosProductos.id}) id="botonEliminar"><i class="icon-remove " id="remove"></i></button> 
                             </div>
                         </div>
                 </div>          
@@ -61,3 +55,13 @@ function actualizarCarrito (){
 const contadorCarrito = document.getElementById('contadorCarrito')
 const precioTotal = document.getElementById('precioTotal')
 
+// funcion para eliminar los productos del modal
+
+function eliminarproducto(id){
+    let productoAeliminar = carrito.find( el => el.id == id);
+    let indice = carrito.indexOf (productoAeliminar);
+
+    carrito.splice(indice, 1)
+    console.log(carrito);
+    actualizarCarrito()
+}

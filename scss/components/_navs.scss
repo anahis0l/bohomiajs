@@ -58,5 +58,10 @@
                 color: $color-whitebeige;
                 border-radius: 5px;
             }
-        
+    .dropdown-item{
+        color: $color-salmon;
+    }   
+    .dropdown-item:hover{
+        background-color: $color-greenB;
+    }   
 }

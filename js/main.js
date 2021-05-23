@@ -1,14 +1,16 @@
-let acumulador = ``;
+
 let totalCarrito = 0;
 let totalCompra = 0;
 
 class Producto {
-  constructor (nombre, precio, imagen, categoria, stock){
+  constructor (id, nombre, precio, imagen, categoria, stock){
+    this.id = id;
     this.nombre = nombre;
     this.precio = precio;
     this.imagen = imagen;
     this.categoria = categoria;
     this.stock = stock;
+    
   }
 
 }
@@ -16,26 +18,27 @@ class Producto {
 //* Variables objetos*/
 const baseDatosProductos = []; 
 
-baseDatosProductos.push(new Producto ('Cepillo Dientes - Bambu',  250, 'img1','Cuidado Dental',3));
-baseDatosProductos.push(new Producto('Hilo dental Vegano',  450,'img2', 'Cuidado Dental', 2));
-baseDatosProductos.push (new Producto('Pasta dental Ayurvedica',  350,'img3','Cuidado Dental',4));
-baseDatosProductos.push (new Producto ('Shampoo Sólido',  580, 'img4','Cuidado del pelo', 2));
-baseDatosProductos.push (new Producto('Acondicionador Sólido',  590,'img5','Cuidado del pelo', 3));
-baseDatosProductos.push (new Producto ('Jabón Vegeano', 390, 'img6', 'Cuidado del pelo', 4));
-baseDatosProductos.push (new Producto ('Copita Menstrual', 1500, 'img7', 'Cuidado Femenino' ,3));
-baseDatosProductos.push (new Producto ('Agua de rosas', 750, 'img8','Cuidado Femenino' ,2));
-baseDatosProductos.push (new Producto ('Pads desmaquillantes',  720,'img9','Cuidado Femenino',2));
+baseDatosProductos.push(new Producto (1, 'Cepillo Dientes - Bambu',  250, 'img1','Cuidado Dental',3));
+baseDatosProductos.push(new Producto(2, 'Hilo dental Vegano',  450,'img2', 'Cuidado Dental', 2));
+baseDatosProductos.push (new Producto(3, 'Pasta dental Ayurvedica',  350,'img3','Cuidado Dental',4));
+baseDatosProductos.push (new Producto (4, 'Shampoo Sólido',  580, 'img4','Cuidado del pelo', 2));
+baseDatosProductos.push (new Producto(5, 'Acondicionador Sólido',  590,'img5','Cuidado del pelo', 3));
+baseDatosProductos.push (new Producto (6, 'Jabón Vegeano', 390, 'img6', 'Cuidado del pelo', 4));
+baseDatosProductos.push (new Producto (7, 'Copita Menstrual', 1500, 'img7', 'Cuidado Femenino' ,3));
+baseDatosProductos.push (new Producto (8, 'Agua de rosas', 750, 'img8','Cuidado Femenino' ,2));
+baseDatosProductos.push (new Producto (9, 'Pads desmaquillantes',  720,'img9','Cuidado Femenino',2));
 
 localStorage.setItem ('Productos', JSON.stringify(baseDatosProductos));
 console.log (JSON.parse (localStorage. getItem ('Productos')));
 
 const contenedorProductos = document.getElementById("productos")
+
 // creador de cards 
 mostrarProductos (baseDatosProductos);
-$("#productos").html(acumulador);
 
-  function mostrarProductos (array){
 
+function mostrarProductos (array){
+  let acumulador = ``;
   contenedorProductos.innerHTML = ''
 
         array.forEach( (baseDatosProductos) => {
@@ -62,25 +65,17 @@ $("#productos").html(acumulador);
                 </div>
                 </div>
                 </div>`;
-
         });
-
+        $("#productos").html(acumulador);
       }
 
 
 let carrito = [];
-const unidades = document.getElementById('cantidad').value
+
 // funcion agregar al carrito y actualizarlo 
 function agregarAlCarrito (precio) {
-  let inputValue = unidades.value
+
   let productoElegido = baseDatosProductos.find( el => el.precio == precio )
-  if ( inputValue == '1'){   
-     console.log('Se agrego un nuevo producto al carrito. El total es: $ '+  precio)
-    } else if (inputValue == '2') {
-        console.log('Se agregaron 2 productos al carrito. El total es: $ '+ 2*precio)
-      }else {
-        console.log('Se agregaron 3 productos al carrito. El total es: $ '+ 3*precio)
-      }
   
   
       carrito.push (productoElegido);
@@ -104,14 +99,13 @@ const storage_carrito = localStorage.getItem("carrito")
 /// funciones para filtrar 
 
 $('#todos').on('click', () => {
-  mostrarProductos(baseDatosProductos);
-  
+  mostrarProductos(baseDatosProductos); 
 })
 
 $('#dental').on('click', () => {
   const valorDental = baseDatosProductos.filter( (el) => el.categoria.includes('Cuidado Dental'));
   console.log(valorDental)
-  return mostrarProductos(baseDatosProductos.filter( (el) => el.categoria.includes('Cuidado Dental')));
+  return mostrarProductos(valorDental);
 
 
 })
@@ -126,26 +120,8 @@ $('#pelo').on('click', () => {
   $('#fem').on('click', () => {
   const valorFem = baseDatosProductos.filter( el => el.categoria == 'Cuidado Femenino');
   console.log(valorFem)
-  mostrarProductos(baseDatosProductos.filter( el => el.categoria == 'Cuidado Femenino'));
+  mostrarProductos(valorFem);
   
  }
   )
 
-
-/// funciones filtrar
-const todos = document.getElementById('todos')
-const dental = document.getElementById('dental')
-const pelo = document.getElementById('pelo')
-const fem = document.getElementById('fem')
-
-function filtrar (baseDatosProductos){
-  const valorDental = baseDatosProductos.filter( (el) => el.categoria.includes('Cuidado Dental'));
-  if ( todos == 'all'){
-  mostrarProductos(baseDatosProductos);}
-  else { 
-    mostrarProductos(valorDental);
-
-  }
-
-
-}

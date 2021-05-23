@@ -94,6 +94,10 @@ button {
     #remove:hover {
         cursor: pointer;
     }
+    #botonEliminar {
+        border: none;
+        background-color: $color-whitebeige;
+    }
 }
 .modal-carrito #carritoCerrar:hover {
     cursor: pointer;
