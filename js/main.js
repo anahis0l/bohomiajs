@@ -1,6 +1,4 @@
-
-let totalCarrito = 0;
-let totalCompra = 0;
+// Creador de objetos 
 
 class Producto {
   constructor (id, nombre, precio, imagen, categoria, stock){
@@ -18,15 +16,15 @@ class Producto {
 //* Variables objetos*/
 const baseDatosProductos = []; 
 
-baseDatosProductos.push(new Producto (1, 'Cepillo Dientes - Bambu',  250, 'img1','Cuidado Dental',3));
-baseDatosProductos.push(new Producto(2, 'Hilo dental Vegano',  450,'img2', 'Cuidado Dental', 2));
-baseDatosProductos.push (new Producto(3, 'Pasta dental Ayurvedica',  350,'img3','Cuidado Dental',4));
-baseDatosProductos.push (new Producto (4, 'Shampoo Sólido',  580, 'img4','Cuidado del pelo', 2));
-baseDatosProductos.push (new Producto(5, 'Acondicionador Sólido',  590,'img5','Cuidado del pelo', 3));
-baseDatosProductos.push (new Producto (6, 'Jabón Vegeano', 390, 'img6', 'Cuidado del pelo', 4));
-baseDatosProductos.push (new Producto (7, 'Copita Menstrual', 1500, 'img7', 'Cuidado Femenino' ,3));
-baseDatosProductos.push (new Producto (8, 'Agua de rosas', 750, 'img8','Cuidado Femenino' ,2));
-baseDatosProductos.push (new Producto (9, 'Pads desmaquillantes',  720,'img9','Cuidado Femenino',2));
+baseDatosProductos.push(new Producto (1, 'Cepillo Dientes - Bambu',  250, 'img1','Cuidado Dental',6));
+baseDatosProductos.push(new Producto(2, 'Hilo dental Vegano',  450,'img2', 'Cuidado Dental', 5));
+baseDatosProductos.push (new Producto(3, 'Pasta dental Ayurvedica',  350,'img3','Cuidado Dental',9));
+baseDatosProductos.push (new Producto (4, 'Shampoo Sólido',  580, 'img4','Cuidado del pelo', 5));
+baseDatosProductos.push (new Producto(5, 'Acondicionador Sólido',  590,'img5','Cuidado del pelo', 6));
+baseDatosProductos.push (new Producto (6, 'Jabón Vegeano', 390, 'img6', 'Cuidado del pelo', 8));
+baseDatosProductos.push (new Producto (7, 'Copita Menstrual', 1500, 'img7', 'Cuidado Femenino' ,4));
+baseDatosProductos.push (new Producto (8, 'Agua de rosas', 750, 'img8','Cuidado Femenino' ,6));
+baseDatosProductos.push (new Producto (9, 'Pads desmaquillantes',  720,'img9','Cuidado Femenino',3));
 
 localStorage.setItem ('Productos', JSON.stringify(baseDatosProductos));
 console.log (JSON.parse (localStorage. getItem ('Productos')));
@@ -51,13 +49,8 @@ function mostrarProductos (array){
                 <h5> $${baseDatosProductos.precio}</h5>
                 <b>${baseDatosProductos.categoria}</b>
                 <p class="card-text">Apto vegano - Cruelty Free -  Productos sin sulfatos / organicos y sustentables </p>
-                  <label>Cantidad:</label>
-                  <select id="cantidad">
-                      <option value="1" selected="selected">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                  </select>
-                <i> Stock : ${baseDatosProductos.stock}</i>
+                <button id="botonShow"><i class="icon-spinner3"></i> Consultar stock</button>
+                <i id="stockHide"> Disponible : ${baseDatosProductos.stock}</i>
                 </div>    
                 <div class="card-footer">
                 <button class="rounded comprar" onclick="agregarAlCarrito('${baseDatosProductos.precio}')"><i class="icon-cart"></i> Agregar al carrito</button>
@@ -69,24 +62,33 @@ function mostrarProductos (array){
         $("#productos").html(acumulador);
       }
 
+//animaciones jquery
+$("#stockHide").hide();
+$(function(){
+  const stockHide = $("#stockHide");
+  const botonShow = $("#botonShow");
+   
+  botonShow.on("click", function(){
+    stockHide.show();
+  });
+
+});
 
 let carrito = [];
 
 // funcion agregar al carrito y actualizarlo 
 function agregarAlCarrito (precio) {
-
   let productoElegido = baseDatosProductos.find( el => el.precio == precio )
-  
-  
+  let stockProducto = baseDatosProductos.find( el => el.stock == 'stock' )
+if (stockProducto > 1) {
+  console.log ("Se agrego un nuevo producto al carrito")
+}  else {
+  console.log ("No tenemos stock suficiente")
+}
       carrito.push (productoElegido);
       localStorage.carrito = JSON.stringify(carrito);
-      console.log (carrito);
 
-      function sumarIva (precio) {
-        return unidades.value =(precio * 1.21) }
-        console.log ('El precio del producto seleccionado + iva es $: ' + sumarIva (precio * 1.21) + ' por unidad');
-   
-        actualizarCarrito()   
+      actualizarCarrito() 
 }
 
 const storage_carrito = localStorage.getItem("carrito")
@@ -98,11 +100,11 @@ const storage_carrito = localStorage.getItem("carrito")
  
 /// funciones para filtrar 
 
-$('#todos').on('click', () => {
+$('.todos').on('click', () => {
   mostrarProductos(baseDatosProductos); 
 })
 
-$('#dental').on('click', () => {
+$('.dental').on('click', () => {
   const valorDental = baseDatosProductos.filter( (el) => el.categoria.includes('Cuidado Dental'));
   console.log(valorDental)
   return mostrarProductos(valorDental);
@@ -110,14 +112,14 @@ $('#dental').on('click', () => {
 
 })
 
-$('#pelo').on('click', () => {
+$('.pelo').on('click', () => {
   const valorPelo = baseDatosProductos.filter( el => el.categoria == 'Cuidado del pelo');
   console.log(valorPelo)
   mostrarProductos(valorPelo)
 })
 
 
-  $('#fem').on('click', () => {
+  $('.fem').on('click', () => {
   const valorFem = baseDatosProductos.filter( el => el.categoria == 'Cuidado Femenino');
   console.log(valorFem)
   mostrarProductos(valorFem);

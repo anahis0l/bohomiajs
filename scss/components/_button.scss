@@ -16,3 +16,13 @@ button:hover {
         color: $color-greendark;
     }  
 }
+
+#botonShow {
+    background-color: #ffffff;
+    color: $color-greendark;
+    border-color:$color-greendark;
+    border-radius: 5px;
+    i{
+    color: $color-greendark;
+    }
+}

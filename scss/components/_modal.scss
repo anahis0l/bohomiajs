@@ -85,10 +85,13 @@ button {
         
     }
 
-    #finalizar {
+    .finalizar {
         background-color: $color-salmon;
-        color: $color-whitebeige;
         font-weight: bold;
+        a{
+            text-decoration: none;
+            color: $color-whitebeige;
+        }
 
     }
     #remove:hover {

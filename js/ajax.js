@@ -1,3 +1,5 @@
+// Ajax comentado porque no te deja usar el resto del codigo 
+
 function traerDatos () {
     $.get("https://api.mercadolibre.com/sites/MLA/search?q=ecofriendly", function(response, estado){
         const results = response.results 
