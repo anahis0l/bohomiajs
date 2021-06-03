@@ -17,7 +17,7 @@ const contenedorCarrito = document.getElementById('carrito-contenedor')
 function actualizarCarrito (){
   contenedorCarrito.innerHTML = ''
 
-  carrito.forEach ( (baseDatosProductos) =>{
+  carrito.forEach ( (baseDeDatosProductos) =>{
 
     const div = document.createElement('div')
     div.classList.add('productoEnCarrito')
@@ -28,14 +28,14 @@ function actualizarCarrito (){
                                 <p>1</p>
                             </div>
                             <div class="col-8">
-                                <h5>${baseDatosProductos.nombre}</h5>
-                                <i>$${baseDatosProductos.precio}</i> 
+                                <h5>${baseDeDatosProductos.nombre}</h5>
+                                <i>$${baseDeDatosProductos.precio}</i> 
                                 </div>
                             <div class="col-2">
                                 <img class="animate__animated animate__fadeIn" src="./imagenes/${baseDatosProductos.imagen}.jpg" alt="" with="100px" height="100px"> 
                             </div>
                                 <div class="col-1 d-flex align-items-center">
-                                <button onclick=eliminarproducto(${baseDatosProductos.id}) id="botonEliminar"><i class="icon-remove " id="remove"></i></button> 
+                                <button onclick=eliminarproducto(${baseDeDatosProductos.id}) id="botonEliminar"><i class="icon-remove " id="remove"></i></button> 
                                 </div>
                             </div>
                     </div>          
