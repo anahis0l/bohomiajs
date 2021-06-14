@@ -2,73 +2,82 @@
     {
     "id": "1",
     "nombre": "Cepillo Dientes - Bambu",
-    "precio": "250",
+    "precio": 250,
     "imagen": "img1",
     "categoria": "Cuidado Dental",
-    "stock":"10"
+    "stock":"10",
+    "cantidad":1
     },
     {
         "id": "2",
         "nombre": "Hilo dental Vegano",
-        "precio": "450",
+        "precio": 450,
         "imagen": "img2",
         "categoria": "Cuidado Dental",
-        "stock":"10"
+        "stock":"10",
+        "cantidad":1
     },
     {
             "id": "3",
             "nombre": "Pasta dental Ayurvedica",
-            "precio": "350",
+            "precio": 350,
             "imagen": "img3",
             "categoria": "Cuidado Dental",
-            "stock":"10"
+            "stock":"10",
+            "cantidad":1
     },
     {
         "id": "4",
         "nombre": "Shampoo Sólido",
-        "precio": "580",
+        "precio": 580,
         "imagen": "img4",
         "categoria": "Cuidado del pelo",
-        "stock":"10"
+        "stock":"10",
+        "cantidad":1
     },
     {
         "id": "5",
         "nombre": "Acondicionador Sólido",
-        "precio": "590",
+        "precio": 590,
         "imagen": "img5",
         "categoria": "Cuidado del pelo",
-        "stock":"10"
+        "stock":"10",
+        "cantidad":1
     },
     {
         "id": "6",
         "nombre": "Jabón Vegeano",
-        "precio": "390",
+        "precio": 390,
         "imagen": "img6",
         "categoria": "Cuidado del pelo",
-        "stock":"10"
+        "stock":"10",
+        "cantidad":1
     },
     {
         "id": "7",
         "nombre": "Copita Menstrual",
-        "precio": "1500",
+        "precio": 1500,
         "imagen": "img7",
         "categoria": "Cuidado Femenino",
-        "stock":"10"
+        "stock":"10",
+        "cantidad":1
     },
     {
         "id": "8",
         "nombre": "Agua de rosas",
-        "precio": "750",
+        "precio": 750,
         "imagen": "img8",
         "categoria": "Cuidado Femenino",
-        "stock":"10"
+        "stock":"10",
+        "cantidad":1
     },
     {
         "id": "9",
         "nombre": "Pads desmaquillantes",
-        "precio": "800",
+        "precio": 800,
         "imagen": "img9",
         "categoria": "Cuidado Femenino",
-        "stock":"10"
+        "stock":"10",
+        "cantidad":1
     }
 ]
